@@ -1,0 +1,7 @@
+# set which kinds of file will be ignore
+*~
+*.[dump]
+*.[swp]
+# this line will be ignore ,such as start with #
+# */ this,is which kinds of directory will be ignore
+# !* this is the simple of the word will be pay attention to 
