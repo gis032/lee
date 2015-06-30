@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>可以随便拖拽的img</title>
+	<script type="text/javascript">
+	function dragStart(event){
+		event.dataTransfer.setData("Text",event.target.id);
+	}
+	function allowDrop(ev)
+	{
+		
+		ev.preventDefault();
+	}
+		function drop(ev)
+	{
+		
+	
+	var data=ev.dataTransfer.getData("Text");
+	ev.target.appendChild(document.getElementById(data));
+	ev.preventDefault();
+	}
+
+	</script>
+	<style type="text/css">
+	div{border:1px solid black;}
+	</style>
+</head>
+<body>
+	<div>
+		<img  id ="drag" src="HTML5.jpg" alt="这个属性是在图片不显示的时候出现的提示" draggable="true" ondragstart="dragStart(event)" />
+	</div>
+</br>
+	<div style="width:500px;height:400px;">
+		<div id = "drag1" ondrop="drop(event)" ondragover="allowDrop(event)" style="width:33%;height:33%;border:1px solid red;float:left"></div>
+		<div id = "drag2" ondrop="drop(event)" ondragover="allowDrop(event)" style="width:33%;height:33%;border:1px solid red; float:right;"></div>
+	</div>
+</body>
+</html>
