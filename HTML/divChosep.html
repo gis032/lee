@@ -1,0 +1,29 @@
+<html>
+<!--使用一张片，然后调整图片的位置来决定在一个框框内显示出一个图标，添加响应时间，防止在加载过多图片的时候网速不加或是什么问题造成界面不美观，全程使用一张图片 -->
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+    <title>联系使用div选择一张图片的某个地方</title>
+    <style type="text/css" media="screen">
+    #p1{
+        width:30px;
+        height:30px;
+        border:2px solid #ccc;
+        background-image:url(11.jpg);
+        background-position:-140px -30px;
+        float:left;
+    } 
+    </style>
+</head>
+<body>
+<a href="javascript:alert(1)"><div id="p1" >
+</div>    </a>
+<a href="javascript:alert(22)"><div id="p1" style="background-position:-95px -155px;" >
+</div>    </a>
+<a href="http://www.baidu.com" target="aaa"><div id="p1" style="background-position:-5px -190px;" >
+</div>    </a>
+
+
+<iframe id="aaa" name="aaa"></iframe>
+</body>
+</html>

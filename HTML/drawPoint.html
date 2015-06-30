@@ -1,0 +1,40 @@
+<script type="text/javascript" charset="utf-8">
+   var width = 20;
+   var heigh = 20;
+   var cols =  20;
+   var rows = 20;
+
+    //一个和div一样的数组
+   var arr = new Array();
+   for(var i =0;i<rows;i++){
+        arr[i] = new Array(); 
+    for(var j = 0;j<cols;j++){
+        arr[i][j] = 0;
+    }
+   }
+
+
+    arr[Math.floor(Math.random()*rows)][Math.floor(Math.random()*cols)]=1;
+    arr[Math.floor(Math.random()*rows)][Math.floor(Math.random()*cols)]=2;
+
+
+
+   //循环行数
+   for (var i = 0; i < rows; i++) {
+     //循环列数
+        for(var j = 0;j<cols;j++){
+            if(arr[i][j]==1)
+                var bg = "black";
+            else if(arr[i][j]==2)
+                var bg ="green";
+            else
+                var bg = "red";
+             document.write('<div name="tt" class="tt" style="position:absolute;top:'+(100+i*20)+'px;left:'+(220+j*20)+'px;background-color:'+bg+';width:'+width+'px;height:'+heigh+'px;border:1px solid white"></div>'); 
+        }
+    }
+   
+    
+</script>
+<body>
+<div style="border:1px solid white;width=180px;heigh=200px"></div>
+</body>
