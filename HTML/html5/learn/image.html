@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!--
+	作者：family_lee_wq@sina.com
+	时间：2015-07-01
+	描述：笑脸  运动
+-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id ="can1" style="width:800px;height: 200px; border: double 1px chocolate;"></canvas>
+		<input type="button" value="开始" onclick="drawuu()" />
+	</body>
+	<script>
+	var i = 1;
+	var j = 1;
+	setInterval(moveFace,1000);
+	function moveFace(){
+		var temp = document.getElementById("can1");
+		var obj = temp.getContext("2d");
+		obj.clearRect(0,0,temp.width,temp.height);
+		drawFace(obj);
+	}
+	function drawFace(obj){
+//	  if(j==0){
+//	  	i++;
+//	  	if(i==40){
+//	  	 j=1;
+//	  	}
+//	  }if(j==1){
+//	  	i--
+//	  	if(i==-40){
+//	  		j=0;
+//	  	}
+//	  }
+	 if(i>40|| i<-40){
+		j=-j;
+	 }
+	 i = i+j;
+	  drawCricle(obj,"red",150+i,80,30,2,true);//大圆
+	  drawCricle(obj,"blue",140+i,70,5,2,true);//眼睛左面
+	  drawCricle(obj,"green",160+i,70,5,2,true);//眼睛右面
+	  drawCricle(obj,"black",150+i,80,18,1,false);//嘴
+	 }
+	function drawCricle(cxt,colorSet,intx,inty,intR,intCorer,flag){
+		// 2d上下文对象   颜色 x y 半径 角度 是否填充
+		cxt.beginPath();
+		//alert(colorSet+intx+inty+intR+intCorer);
+		cxt.arc(intx,inty,intR,0,Math.PI*intCorer,flag);		
+		if(flag){
+			cxt.fillStyle=colorSet;
+			cxt.fill();
+		}else{
+			cxt.lineWidth=2;
+			cxt.strokeStyle=colorSet;
+			cxt.stroke();
+		}
+		cxt.closePath();
+	}
+	function drawuu(){
+		var temp = document.getElementById("can1");
+		var obj = temp.getContext("2d");
+		obj.arc(100,75,50,0,Math.PI*2,true);	
+		obj.fill();
+	}
+	</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

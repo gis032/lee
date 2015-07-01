@@ -8,7 +8,98 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Simple animation</title>
-	</head>
-	<body>
+		<style>
+			
+		</style>
+	</head >
+	<body onload="drawPerson(0,0)">
+		<canvas id="person" height="600px" width="800px"  style="border: solid coral;"></canvas>
+		<input type="button" onclick="drawuu()" value="111" />
 	</body>
+	<script>
+			var obj =document.getElementById("person");
+			var cxt = obj.getContext("2d");
+			var xx=0;
+			var yy=0;
+			function drawPerson(x,y){
+			//话一个脑袋
+			drawHead(cxt,x,y);
+			drawBody(cxt,x,y);
+			drawFours(cxt,x,y);
+		}
+		function drawHead(cxt,x,y){
+			//cricle x y r 弧度开始 弧度结束，填充或者边框
+			drawCircle(cxt,"blue",100+x,25+y,20,0,2,true);
+			drawCircle(cxt,"red",90+x,20+y,5,0,2,true);
+			drawCircle(cxt,"red",110+x,20+y,5,0,2,true);
+			drawCircle(cxt,"black",100+x,25+y,15,0,1,false);
+		}
+		function drawBody(cxt,x,y){
+			cxt.fillStyle="black";
+			cxt.lineWidth=2;
+			cxt.strokeRect(75+x,45+y,50,40);
+			
+		}
+		function drawFours(cxt,x,y){
+			cxt.fillStyle="red";
+			cxt.lineWidth=2;
+			cxt.strokeRect(65+x,55+y,10,10);//左手
+			cxt.strokeRect(125+x,55+y,10,10);//右手
+			cxt.strokeRect(85+x,85+y,10,20);//左脚
+			cxt.strokeRect(105+x,85+y,10,20);//右脚
+		}
+		function drawCircle(cxt,color,x,y,r,rangx,rangy,flag){
+			//alert(cxt+","+color+","+x+","+y+","+r+","+rangx+","+rangy+","+flag);
+			cxt.beginPath();
+			cxt.arc(x,y,r,0,Math.PI*rangy,flag);	
+			if(flag){
+				cxt.fillStyle=color;
+				cxt.fill();
+			}else{
+				cxt.fillStyle=color;
+				cxt.lineWidth=2;
+				cxt.stroke();
+			}
+			cxt.closePath();
+		}
+		function moveP(x,y,cxt,obj){
+			cxt.clearRect(0,0,obj.clientWidth,obj.clientHeight);
+			
+			drawPerson(x,y);
+		}
+		document.onkeydown = function(event){
+			var e = event || window.event;
+			if(e&&e.keyCode==38){//上
+				moveP(xx,yy--,cxt,obj);
+			}
+			if(e&&e.keyCode==40){//下
+				moveP(xx,yy++,cxt,obj);
+			}
+			if(e&&e.keyCode==37){//左
+				moveP(xx--,yy,cxt,obj);
+			}
+			if(e&&e.keyCode==39){//右
+				moveP(xx++,yy,cxt,obj);
+			}
+		}
+
+	</script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
