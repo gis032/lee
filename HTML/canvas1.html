@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				margin: 0px;
+			}
+			canvas{
+				margin: 0px;
+				padding: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="can1" style="width:60%;height: 500px;border: 1px solid green;">
+		
+		</canvas>
+		<input type="button" value="画一个图形" onclick="drawP()" />
+		<input type="button" value="移动" onclick="drawTran()" />
+		<input type="button" value="缩放" onclick="drawSacl()" />
+		<input type="button" value="旋转" onclick="drawRote()" />
+	</body>
+	<script type="text/javascript">
+		//画图
+		function drawP(){
+			var temp = document.getElementById("can1");
+			var obj = temp.getContext("2d");
+			obj.strokeStyle="chocolate";
+			obj.lineWidth=3;
+			obj.strokeRect(30,30,80,50);
+		}
+		//移动
+		function drawTran(){
+			var temp = document.getElementById("can1");
+			var obj = temp.getContext("2d");
+			obj.translate(-20,-20);
+			drawP();
+		}
+		//变化
+		function drawSacl(){
+			var temp = document.getElementById("can1");
+			var obj = temp.getContext("2d");
+			obj.scale(1.1,0.9);
+			drawP();
+		}
+		//旋转
+		function drawRote(){
+			var temp = document.getElementById("can1");
+			var obj = temp.getContext("2d");
+			obj.rotate(2);
+			drawP();
+		}
+	</script>
+</html>
