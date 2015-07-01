@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--
+	作者：family_lee_wq@sina.com
+	时间：2015-07-01
+	描述：绘制一个带边框的矩形
+-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>绘制一个带有边框和内部的矩形</title>
+		<script type="text/javascript" src="../js/canvas.js" ></script>
+	</head>
+	<body onload="drawNoCircle()">
+		<canvas id ="can1" style="width:300px;height:200px;border:1px solid mediumvioletred;"></canvas>
+		<input type="button" value="xxxx" onclick="clearAA()" />
+		<input type="button" onclick="clearAA()" />
+	</body>
+	<script>
+	function clearAA(){
+	alert(1);
+	var a = document.getElementById("can1");
+	var obj = a.getContext("2d");
+	obj.clearRect(55, 55, 15, 15);
+}
+	</script>
+</html>

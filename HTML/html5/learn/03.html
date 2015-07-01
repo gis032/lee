@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<canvas id ="can1" style="border: 1px solid aquamarine;">
+			
+		</canvas>
+		<input type="button" value ="渐变" onclick="draw1()" />
+	</body>
+	<script type="text/javascript">
+		var temp =document.getElementById("can1");
+		var obj = temp.getContext("2d");
+		function draw1(){
+			var gnt= obj.createLinearGradient(10,10,50,50);
+			gnt.addColorStop(0,"blue");
+			gnt.addColorStop(1,"red");
+			obj.fillStyle=gnt;
+			obj.fillRect(0,0,170,170);
+		}
+	</script>
+</html>

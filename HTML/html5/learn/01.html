@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--
+	作者：family_lee_wq@sina.com
+	时间：2015-07-01
+	描述：这个现在需要获取鼠标点击的xy 来画一个东西
+-->
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>html5</title>
+		<style>
+			canvas{
+				width:100%;
+				height:100%;
+				border: 1px solid blue;
+			}
+		</style>
+	</head>
+	<body >
+		<canvas id="first" >
+			
+		</canvas>
+		<input type="button" value="画出一个长方形" onclick="draw2()"/>
+	</body>
+	<script >
+		function draw(x,y){
+		var startX =x;
+		var startY =y;
+		alert(startX+"_"+startY);
+		var a =document.getElementById("first");
+		var obj = a.getContext("2d");
+		obj.fillStyle="red";
+		obj.fillRect(startX,startY,50,50);
+		alert(1);
+		}
+		function mouseMove(ev){
+			var srollX  = ev.screenX;
+			var srollY = ev.screenY;
+			alert(srollX+"_"+srollY);
+			draw(srollX,srollY);
+		}
+		function draw2(){
+			var startX = 20;
+			var startY = 20;
+		var a =document.getElementById("first");
+		var obj = a.getContext("2d");
+		obj.fillStyle="red";
+		obj.fillRect(startX,startY,50,50);
+		}
+		onload=function (event){
+			
+		}
+	</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

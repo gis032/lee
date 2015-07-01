@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<!--
+    	作者：family_lee_wq@sina.com
+    	时间：2015-07-01
+    	描述：点击的时候出现图形
+    -->
+
+	<head>
+		<meta charset="utf-8">
+		<title>点击的时候出现图形</title>
+	</head>
+
+	<body>
+		<canvas id="can1" style="width: 100%;height: 300px;border: double 2px cornflowerblue;" onclick="drawPict()"></canvas>
+	</body>
+	<script>
+	function drawPict(){
+		var temp = document.getElementById("can1");
+		var x = temp.screenLeft;
+		var y = temp.screenTop;
+		alert(x);
+		
+		
+	}
+	</script>
+</html>
