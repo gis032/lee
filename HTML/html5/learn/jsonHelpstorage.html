@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<!--
+	作者：family_lee_wq@sina.com
+	时间：2015-07-03
+	描述：虽然说可以将界面上的值获取到 然后使用字符串拼接的方式来完成数据的存储，但是这个样子显得麻烦 我们使用首先创建一个对象然后就将对象为这个对象添加属性，这个属性的值就是当前我们界面上获取到的值，然后在使用json的JSON.stringfy(obj)将这个转换成json的形式存储在localstorage中，在取出的时候，我们使用JSON.parse(string)转换成一个对象，通过对象的属性来回去当前的值
+
+-->
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			td {
+				text-align: left;
+			}
+			#showMs table {
+				border: 1px red solid;
+			}
+			#showMs table td {
+				width: 80px;
+				border: black 1px solid;
+			}
+			textarea {
+				resize: none;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="x1" style="width: 300px;border: 1px solid cyan;">
+			<form>
+				<table border="1px soild red">
+					<tr>
+						<th>姓名</th>
+						<td>
+							<input type="text" id="userName" name="userName" style="width:100px" />
+						</td>
+					</tr>
+					<tr>
+						<th>性别</th>
+						<td>
+							<input type="radio" name="raSex" value="男" id="sex" />男
+							<input type="radio" name="raSex" value="女" id="sex" />女
+						</td>
+					</tr>
+					<tr>
+						<th>学号</th>
+						<td>
+							<input type="text" id="userNu" name="userNu" style="width:100px" />
+						</td>
+					</tr>
+					<tr>
+						<th>描述</th>
+						<td>
+							<textarea id="ps" rows="3" cols="20"></textarea>
+						</td>
+					</tr>
+				</table>
+				<input type="button" width="window.clientWidth/2px" onclick="doSum()" value="录入" />
+			</form>
+		</div>
+		<fieldset>
+			<legend>查询学生信息</legend>
+			学号
+			<input type="text" id="searMs" />
+			<input type="button" value="查询" onclick="showMsg()" />
+		</fieldset>
+		<div id="showMs" style="float:left; width: 500px;height: 400px; border : double">
+			<font id="msEr" color="red"></font>
+			<table>
+				<tr>
+					<td>学生学号</td>
+					<td>学生姓名</td>
+					<td>性别</td>
+					<td>备注</td>
+				</tr>
+				<tr id="xx">
+
+				</tr>
+			</table>
+		</div>
+		<script>
+			function doSum() {
+				var userName = document.getElementById("userName").value;
+				var userNu = document.getElementById("userNu").value;
+				var radio = document.getElementsByName("raSex");
+				for (var i = 0; i < radio.length; i++) {
+					if (radio[i].checked) {
+						var sex = radio[i].value;
+					}
+				}
+				var des = document.getElementById("ps").value;
+				var obj = new Object();
+				obj.userName = userName;
+				obj.sex = sex;
+				obj.userNu = userNu;
+				obj.des = des;
+				var TxtData = JSON.stringify(obj);
+				localStorage.setItem(userNu, TxtData);
+			}
+
+			function showMsg() {
+				var userNu = document.getElementById("searMs").value;
+				var TxtData = localStorage.getItem(userNu);
+				if (TxtData == null) {
+					document.getElementById("msEr").innerHTML = "无当前学生，没有录入或者没有此人";
+					return;
+				} else {
+					var obj = JSON.parse(TxtData);
+					var xxx = document.getElementById("xx");
+					var d1 = document.createElement("td");
+					var p = document.createElement("input");
+					p.value = obj.userNu;
+					d1.appendChild(p);
+					//var i1 = document.createElement("input");
+					var d2 = document.createElement("td");
+					var p2 = document.createElement("input");
+					p2.value = obj.userName;
+					d2.appendChild(p2);
+					var d3 = document.createElement("td");
+					var p3 = document.createElement("input");
+					p3.value = obj.sex;
+					d3.appendChild(p3);
+					var d4 = document.createElement("td");
+					var p4 = document.createElement("input");
+					p4.value = obj.des;
+					d4.appendChild(p4);
+					xxx.appendChild(d1);
+					xxx.appendChild(d2);
+					xxx.appendChild(d3);
+					xxx.appendChild(d4);
+				}
+			}
+		</script>
+	</body>
+
+</html>

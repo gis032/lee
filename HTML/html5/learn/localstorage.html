@@ -7,8 +7,50 @@
     -->
 	<head>
 		<meta charset="utf-8">
-		<title></title>
+		<title>localstorage</title>
 	</head>
 	<body>
+		<fieldset>
+			<legend>使用localstorage保存的数据不会随着浏览器的关闭而关闭</legend>
+			username:<input type="text" id="lim"><font color="red" id="xx"></font><br>
+			<input type="button" onclick="saveMes()" value="保存信息" />
+			<input type="button" onclick="showMes()" value="显示信息" />
+			<input type="button" onclick="clearMes()" value="清除信息" />
+			<div id="showM" style="width:300px;height: 200px;border: double;display:table;">
+				<p id="nu"></p>
+				
+			</div>
+		</fieldset>
 	</body>
+	<script>
+		var lim =document.getElementById("lim");
+		function saveMes(){
+			var text = lim.value;
+			if(text==""){
+				document.getElementById("xx").innerHTML="请输入信息";
+				return;
+			}
+			localStorage.setItem(text,text);
+			var nu= localStorage.length;
+			document.getElementById("nu").innerHTML=nu;
+			var p = document.createElement("p");
+			p.innerHTML=text;
+			document.getElementById("showM").appendChild(p);
+		}
+		function showMes(){
+			var nu= localStorage.length;
+			var p = document.createElement("p");
+			p.innerHTML=nu;
+			document.getElementById("showM").appendChild(p);
+			for(var i =0;i<nu;i++){
+				var k = localStorage.key(i);
+				var p = document.createElement("p");
+				p.innerHTML=localStorage.getItem(k);
+				document.getElementById("showM").appendChild(p);
+			}
+		}
+		function clearMes(){
+			localStorage.clear();
+		}
+	</script>
 </html>

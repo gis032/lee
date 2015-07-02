@@ -6,10 +6,45 @@
 	相当于 服务器端的session
 -->
 <html>
+
 	<head>
 		<meta charset="utf-8">
-		<title></title>
+		<title>session stroage</title>
 	</head>
 	<body>
+	<fieldset>
+		<legend > session storage 临时数据存储</legend>
+		输入姓名
+		<input type="text" id="userName" name="userName" size="2" onchange="putInSess(this)" style="width:90px" />
+		<br />
+		<input type="button" id="getUserName" name="getUserName" onclick="getSessMes()" value="获取信息" />
+		<input type="button" onclick="clearMes()" style="width: 80px;color: aquamarine;" value="清除数据"/>
+		<p id="showMes"></p>
+	</fieldset>
+	<script>
+		function putInSess(v){
+			var userName  = v.value;
+			sessionStorage.setItem(userName,userName); 
+			document.getElementById("showMes").display="block";
+			var text=sessionStorage.getItem(userName);
+			var h = document.createElement("h1");
+			h.innerHTML=text;
+			document.getElementById("showMes").appendChild(h);
+		}
+		function getSessMes(){
+			document.getElementById("showMes").display="block";
+			var i =sessionStorage.length;
+			for(var j =0;j<i;j++){
+				var t =sessionStorage.key(j);
+				var h = document.createElement("h1");
+				h.innerHTML=sessionStorage.getItem(t);
+				document.getElementById("showMes").appendChild(h);
+			}
+		}
+		function clearMes(){
+			sessionStorage.clear();
+		}
+	</script>
 	</body>
+
 </html>
