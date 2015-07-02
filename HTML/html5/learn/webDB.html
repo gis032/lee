@@ -3,12 +3,34 @@
 	<!--
     	作者：family_lee_wq@sina.com
     	时间：2015-07-02
-    	描述：web database web客户端的数据库，可以将部分数据存储在数据库中
+    	描述：web database web客户端的数据库，可以将部分数据存储在数据库中或者在界面加载的时候创建创建一个数据库，将服务器端的数据放置在客户端的数据库中，查询的时候先查询客户端的数据库，用数据库执行sql的方法的回调函数来进行信息的处理
     -->
 	<head>
 		<meta charset="utf-8">
-		<title></title>
+		<title>数据库</title>
 	</head>
 	<body>
+		<font id="tishi" color="red"></font>
+		<input type="button" name="createDB" id="createDB" onclick="creatDB()" value="创建数据库" />
+		<input type="button" name="testDB" id="testDB" value="测试数据库连接" onclick="testDB()"/>
 	</body>
+	<script>
+		var db;
+		function creatDB(){
+		//创建数据库
+		 db= openDatabase("test1","1.0","ss",2*1024*1024,function(){
+
+			var ti= document.getElementById("tishi");
+			ti.innerHTML="创建成功";
+		})
+		}
+		function testDB(){
+		//测试数据库
+		if(db){
+			var ti= document.getElementById("tishi");
+			ti.innerHTML="连接成功";
+		}
+		}
+
+	</script>
 </html>
