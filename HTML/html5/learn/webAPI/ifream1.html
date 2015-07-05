@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			var originStart="http://127.0.0.1:8020";
+					function PageLodForMes(){
+						window.addEventListener("message",function(event){
+							if(event.origin==originStart){
+									var str = "<span><br>";
+									str += event.data +"<br>位数的随机数为";
+									str += doRandom(event.data);
+									str +="<br></span><br>";
+									event.source.postMessage(str,event.origin);
+							}
+						},false)
+					}
+					function doRandom(data){
+						var ss = "";
+						for(var a = 0;a<data;a++){
+							ss +=Math.floor(Math.random()*10);
+						}
+						return ss;
+					}
+		</script>
+	</head >
+	<body onload="PageLodForMes()">
+	</body>
+
+</html>
