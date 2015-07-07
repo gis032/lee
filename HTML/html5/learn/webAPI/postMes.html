@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>跨域发送信息</title>
+	</head>
+	<script>
+		var originStart="http://127.0.0.1:8020";
+		function pageLoad(){
+			window.addEventListener("message",function(event){
+				alert(event.origin);
+				if(event.origin == originStart){
+					document.getElementById("showMes").style.display="block";
+					document.getElementById("showMes").innerHTML +=event.data;
+				}
+			},false);
+		}
+		function doMath(){
+			var txt = document.getElementById("getNum").value;
+			document.getElementById("ifa").contentWindow.postMessage(txt,originStart);
+			document.getElementById("getNum").value="";
+		}
+	</script>
+	<body onload="pageLoad()">
+		<fieldset id="">
+			<legend>跨文档请求示例</legend>
+			<p id="showMes"></p>
+			<div id="mainD" style="height: 300px;width: 800px;border: double;">
+
+			<div >
+				&nbsp;<input type="text" id="getNum" name="getNum" style="width: 100px;"height="60px
+				"/>
+				&nbsp;<input type="button" onclick="doMath()" value="计算" />
+			</div>
+			<div>
+				<iframe id="ifa" src="ifream1.html" width="0px" height="0px"></iframe>
+			</div>
+		</div>
+
+		</fieldset>
+
+	</body>
+</html>

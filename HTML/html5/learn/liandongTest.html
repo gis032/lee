@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>测试联动效果</title>
+		<style>
+			option{
+
+				width:100px;
+			}
+
+		</style>
+	</head>
+	<body>
+		<div>
+			<select onchange="func1(this)">
+				<option value="">请选择</option>
+				<option>A</option>
+				<option>B</option>
+			</select>
+			<select id="one" onchange="inser(this)">
+			<option value="">请选择</option>
+			</select>
+			<select id="two" onchange="inser(this)">
+			<option value="">请选择</option>
+			<option>sss</option>
+			</select>
+		</div>
+		<p id="showS"></p>
+	</body>
+	<script>
+		var inf =new Object();
+      	inf[0]=[1,2,3];
+      	inf[1]=[4,5,6];
+		function func1(obj){
+			if(obj.value != ""){
+				var va = obj.selectedIndex;
+				func2(va);
+				document.getElementById("showS").innerHTML="";
+				inser(obj);
+				return;
+			}
+			document.getElementById("one").innerHTML="";
+			pd=document.createElement("option");
+			pd.innerHTML="请选择";
+			document.getElementById("one").appendChild(pd);
+			document.getElementById("two").innerHTML="";
+			pd1=document.createElement("option");
+			pd1.innerHTML="请选择";
+			document.getElementById("two").appendChild(pd1);
+			document.getElementById("showS").innerHTML="";
+		}
+		function func2(a){
+		document.getElementById("one").innerHTML=""
+			pd=document.createElement("option");
+			pd.innerHTML="请选择";
+			document.getElementById("one").appendChild(pd);
+			var tem= inf[a-1];
+			for(var a =0;a<tem.length;a++){
+				p=document.createElement("option");
+				p.innerHTML=tem[a]
+				document.getElementById("one").appendChild(p);
+			}
+		}
+		function inser(obj){
+			var t  = document.getElementById("showS").innerHTML;
+			document.getElementById("showS").innerHTML="";
+			document.getElementById("showS").innerHTML=t+obj.value;
+		}
+	</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
