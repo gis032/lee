@@ -9,7 +9,7 @@
 		<meta charset="utf-8">
 		<title>Simple animation</title>
 		<style>
-			
+
 		</style>
 	</head >
 	<body onload="drawPerson(0,0)">
@@ -38,7 +38,7 @@
 			cxt.fillStyle="black";
 			cxt.lineWidth=2;
 			cxt.strokeRect(75+x,45+y,50,40);
-			
+
 		}
 		function drawFours(cxt,x,y){
 			cxt.fillStyle="red";
@@ -51,7 +51,7 @@
 		function drawCircle(cxt,color,x,y,r,rangx,rangy,flag){
 			//alert(cxt+","+color+","+x+","+y+","+r+","+rangx+","+rangy+","+flag);
 			cxt.beginPath();
-			cxt.arc(x,y,r,0,Math.PI*rangy,flag);	
+			cxt.arc(x,y,r,0,Math.PI*rangy,flag);
 			if(flag){
 				cxt.fillStyle=color;
 				cxt.fill();
@@ -64,7 +64,7 @@
 		}
 		function moveP(x,y,cxt,obj){
 			cxt.clearRect(0,0,obj.clientWidth,obj.clientHeight);
-			
+
 			drawPerson(x,y);
 		}
 		document.onkeydown = function(event){
