@@ -6,3 +6,4 @@
 # */ this,is which kinds of directory will be ignore
 # !* this is the simple of the word will be pay attention to 
 *.[setting]
+*.[MongonDB/.]
