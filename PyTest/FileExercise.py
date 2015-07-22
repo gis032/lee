@@ -12,6 +12,7 @@ F:/workspace/PyTest/FileExercise.py
 '''
 from builtins import __import__
 import os
+import zipfile
 
 # 过滤文件的开头是#的行
 f = open(u'F:\\习题.txt', 'r+', 1, 'utf8')
@@ -58,7 +59,13 @@ def func6():
     f2 = open(u'习题.txt', 'w+', 1, 'utf8')
     for eachLine in f:
         f2.write(eachLine.strip())
-        f2.write('\n')                   
+        f2.write('\n')    
+
+def func7():
+    f = zipfile.ZipFile("hello2.zip","w")
+    f.write('F:/workspace/lee/PyTest/recorder','recorder');
+    f.close()
+    print("ok")                      
 # func1()
 # func3()
 # func4()
@@ -66,7 +73,7 @@ def func6():
 
 #func6()
 
-
+func7()
 
 
 
