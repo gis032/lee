@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+	作者：family_lee_wq@sina.com
+	时间：2015-07-31
+	描述：动画  然后这里面使用到自己的命名空间
+-->
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>测试动画的效果</title>
+		<!--<script type="text/javascript" src="../js/Second.js"></script>引入自己的命名空间 javascript实现-->
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+		<!--<script type="text/javascript" src="../js/Second_extend.js" ></script>-->
+		<script type="text/javascript" src="../js/Second_fn_extend.js" ></script>
+		<script lang="JavaScript">
+		$(document).ready(function(){
+			$("tt").onclick=function(){
+				alert("aa");
+				$(this).aaa();
+			};
+		});
+		</script>
+	</head>
+	<body>
+		<input type="button" id="tt" value="tt" />
+	</body>
+
+</html>

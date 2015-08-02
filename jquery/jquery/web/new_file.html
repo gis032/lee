@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+		<script language="JavaScript">
+			$(document).ready(function() {
+				$('div.chapter a').attr({
+					rel: 'external'
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<div id="topics">
+			Topics:
+			<a href="topics/all.html" class="selected">All</a>
+			<a href="topics/community.html">Community</a>
+			<a href="topics/conferences.html">Conferences</a>
+			<!-- continued... -->
+		</div>
+		<table id="news">
+			<thead>
+				<tr>
+					<th>Date</th>
+					<th>Headline</th>
+	</body>
+	<th>Author</th>
+	<th>Topic</th>
+	</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<th colspan="4">2011</th>
+		</tr>
+		<tr>
+			<td>Apr 15</td>
+			<td>jQuery 1.6 Beta 1 Released</td>
+			<td>John Resig</td>
+			<td>Releases</td>
+		</tr>
+		<tr>
+			<td>Feb 24</td>
+			<td>jQuery Conference 2011: San Francisco Bay Area</td>
+			<td>Ralph Whitbeck</td>
+			<td>Conferences</td>
+		</tr>
+		<!-- continued... -->
+	</tbody>
+	</table>
+
+</html>

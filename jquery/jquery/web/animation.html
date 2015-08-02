@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>animation测试学习</title>
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript" src="../js/Second.js"></script>
+		<script lang="JavaScript">
+			$(document).ready(function() {
+				console.log("当前的任务是学习动画的一些操作情况");
+				Second.getAA();
+				jQuery("#xxx").click(function(){
+					Second.getDiv();
+				});
+			});
+			 //因为使用的是自定义的命名空间，所有说现在可以在自己的命名空间内创建方法阿来调用，而不会引起冲突
+			Second.getAA = function() {
+				console.log("自定义的方法")
+			}
+			Second.getDiv =function(){
+              alert($("div").css(["width","height"]));
+              console.log($("div").css(["width","height"]));
+			}
+		</script>
+		<style>
+		    div{
+		    	background-color: green;
+		    	width: 100%;
+		    	height: 500px;
+		    }
+
+		</style>
+	</head>
+	<body>
+		<div id="div1">
+			<span> aaaaaaaaaaaaaaaaaaaaa</span>
+		</div>
+		<input type="button" id="xxx" value="点击" />
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

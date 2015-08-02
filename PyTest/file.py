@@ -12,6 +12,7 @@ F:/workspace/PyTest/file.py
 '''
 import os 
 import time
+import re
 #如何查看内建函数
 #print(dir(__builtins__))
 #f1 = open(file, mode='r', buffering=_1, encoding=None, errors=None, newline=None, closefd=True, opener=None)
@@ -39,4 +40,15 @@ def funcWriteTO():
 		f.write(os.linesep)
 	f.write(str(time.time()))
 	f.close()	
-funcWriteTO()
+def funccount():
+	fi= open(r"F:\workspace\lee\PyTest\时间.txt",'r')
+	sumA =0.0
+	strRex = '\d*\.\d*'
+	for i in fi:
+		result = re.search(strRex,i)
+		f1 = float(result.group())
+		sumA += f1 
+	print(sumA)	
+
+if __name__=='__main__':
+	funccount()
